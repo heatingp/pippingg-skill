@@ -129,6 +129,8 @@
 
 **依赖：**
 
+- 感谢 [cclank/recipe-generator](https://github.com/cclank/recipe-generator/) 提供灵感和底层工作
+
 - `baoyu-gemini-web` — 用于生成菜谱海报图片
 
 ## 为什么需要这些技能？
