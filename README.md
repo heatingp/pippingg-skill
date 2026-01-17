@@ -122,6 +122,8 @@ Generates professional-grade recipes with detailed instructions and image prompt
 
 **Dependencies:**
 
+- Thanks to [cclank/recipe-generator](https://github.com/cclank/recipe-generator/) for the inspiration and foundational work
+
 - `baoyu-gemini-web` — for generating recipe poster images
 
 ## Why These Skills?
