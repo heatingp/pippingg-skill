@@ -5,3 +5,14 @@ __pycache__/
 .vscode/
 *.log
 tmp/
+
+# 迭代记录（本地使用，不提交）
+CHANGELOG.md
+
+# 生成的菜谱文件（排除 example 目录）
+/*-顶级配方.md
+/*-顶级配方*.md
+
+# 生成的提示词和图片
+*-生图提示词*.txt
+*-菜谱海报*.png
