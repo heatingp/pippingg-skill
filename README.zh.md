@@ -1,4 +1,4 @@
-# pippingg-skill
+# pippingg-skills
 
 帮助深度思考和内容创作的 Claude Code 技能包。
 
@@ -9,13 +9,13 @@
 **方式一：添加 Marketplace（推荐）**
 
 ```bash
-/plugin marketplace add heatingp/pippingg-skill
+/plugin marketplace add heatingp/pippingg-skills
 ```
 
 **方式二：直接安装**
 
 ```bash
-/plugin install thinking-skills@pippingg-skill
+/plugin install thinking-skills@pippingg-skills
 ```
 
 ## 技能列表

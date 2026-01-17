@@ -1,4 +1,4 @@
-# pippingg-skill
+# pippingg-skills
 
 Claude Code skills for deep thinking and content creation.
 
@@ -8,12 +8,12 @@ Claude Code skills for deep thinking and content creation.
 
 **Method 1: Add Marketplace (Recommended)**
 ```
-/plugin marketplace add heatingp/pippingg-skill
+/plugin marketplace add heatingp/pippingg-skills
 ```
 
 **Method 2: Direct Install**
 ```
-/plugin install thinking-skills@pippingg-skill
+/plugin install thinking-skills@pippingg-skills
 ```
 
 ## Available Skills
