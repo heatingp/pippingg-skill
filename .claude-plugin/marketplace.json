@@ -15,7 +15,8 @@
       "source": "./",
       "strict": false,
       "skills": [
-        "./skills/socratic-thinking"
+        "./skills/socratic-thinking",
+        "./skills/skill-iterator"
       ]
     }
   ]

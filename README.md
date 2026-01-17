@@ -27,6 +27,12 @@ Socratic questioning partner for deep analysis. Helps you:
 
 **Usage:** `/socratic-thinking` or say "help me think", "I want to discuss"
 
+### skill-iterator
+
+Automatically iterate and update skills based on conversation feedback.
+
+**Usage:** `/skill-iterator` or say "update this skill", "iterate on skill"
+
 ## License
 
 MIT
