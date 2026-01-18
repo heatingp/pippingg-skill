@@ -164,28 +164,46 @@ A：[解答]
 3. **菜谱海报图片**（使用生图提示词自动生成）
 
 **图片生成方法**：
+
+使用本 skill 内置的 Gemini Web 脚本生成图片（脚本位于 `scripts/` 目录）。
+
+**推荐方式（刷新后立即执行）**：
+
+由于 Gemini cookies 时效性问题，建议每次生成前先刷新再立即执行：
+
 ```bash
-cd ~/.claude/plugins/cache/baoyu-skills/content-skills/2677e730b94e/skills/baoyu-gemini-web && \
+cd ~/.claude/skills/recipe-generator && \
+npx -y bun scripts/main.ts --login && \
+sleep 1 && \
+npx -y bun scripts/main.ts \
+  --prompt "<提示词内容>" \
+  --image "<输出图片路径>"
+```
+
+**备选方式（使用提示词文件）**：
+
+```bash
+cd ~/.claude/skills/recipe-generator && \
+npx -y bun scripts/main.ts --login && \
+sleep 1 && \
 npx -y bun scripts/main.ts \
   --promptfiles "<提示词文件路径>" \
   --image "<输出图片路径>"
 ```
 
-**备用模型**：如果默认模型 (gemini-3-pro) 连接失败，添加 `--model gemini-2.5-flash`：
-```bash
-cd ~/.claude/plugins/cache/baoyu-skills/content-skills/2677e730b94e/skills/baoyu-gemini-web && \
-npx -y bun scripts/main.ts \
-  --promptfiles "<提示词文件路径>" \
-  --image "<输出图片路径>" \
-  --model gemini-2.5-flash
-```
+**注意事项**：
+- 刷新后必须立即执行（sleep 1 秒即可），间隔太长可能再次失效
+- 如果仍然失败，再次执行整个命令（刷新+生成）
+- 不要自动降级到其他模型，仅在用户明确要求时使用 `--model gemini-2.5-flash`
 
 **可用参数**：
+
 | 参数 | 说明 |
 |------|------|
+| `--prompt <text>` | 直接传入提示词文本（推荐，更稳定） |
 | `--promptfiles <files...>` | 提示词文件路径（可多个） |
 | `--image <path>` | 输出图片路径 |
-| `--model <id>` | 模型选择：gemini-3-pro（默认）、gemini-2.5-pro、gemini-2.5-flash |
+| `--model <id>` | 模型选择：gemini-3-pro（默认，推荐）、gemini-2.5-pro、gemini-2.5-flash（仅用户要求时使用） |
 | `--login` | 仅刷新 cookies |
 
 **注意**：只生成一张菜谱海报图，使用本 skill 生成的提示词，不需要额外分析文章或生成多张插图。
@@ -214,6 +232,12 @@ npx -y bun scripts/main.ts \
 - `references/image-prompt-template.md` - 生图提示词模板
 - `references/authoritative-sources.md` - 权威来源说明
 
-## 依赖技能
+## 内置脚本
 
-- `baoyu-gemini-web` - 用于调用 Gemini 生成菜谱海报图片
+本 skill 内置了 Gemini Web 图片生成脚本（复用自 baoyu-gemini-web），无需外部依赖：
+
+- `scripts/main.ts` - CLI 入口，支持文本/图片生成
+- `scripts/gemini-webapi/` - Gemini Web API 客户端库
+  - `client.ts` - GeminiClient 核心类
+  - `types/image.ts` - 图片下载和保存逻辑
+  - `utils/` - 工具函数（cookies、HTTP、日志等）
