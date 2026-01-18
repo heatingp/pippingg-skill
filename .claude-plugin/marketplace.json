@@ -12,21 +12,14 @@
     {
       "name": "thinking-skills",
       "description": "Socratic questioning and first-principles thinking tools",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/socratic-thinking",
-        "./skills/skill-iterator"
-      ]
+      "version": "1.1.0",
+      "source": "./"
     },
     {
       "name": "content-skills",
       "description": "Content creation tools for recipes and more",
-      "source": "./",
-      "strict": false,
-      "skills": [
-        "./skills/recipe-generator"
-      ]
+      "version": "1.1.0",
+      "source": "./"
     }
   ]
 }
